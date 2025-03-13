@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    loadbalancer:
+      sticky-session:
+        enabled: true
+
+  #session:
+    #store-type: redis  # Usa Redis para mantener sesiones pegajosas
+
+  #redis:
+    #host: redis  # Nombre del contenedor Redis en Docker
+    #port: 6379
+    #timeout: 6000ms  # Tiempo de espera en milisegundos
+
+  profiles:
+    default: default
+
+server:
+  port: 4040
+
+eureka:
+  client:
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://registry-server:8761/eureka/
+  instance:
+    prefer-ip-address: true
